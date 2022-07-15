@@ -50,8 +50,19 @@ tr.cancel {
   text-decoration: line-through;
   color: green;
 }
-td.del {
+td.check {
+  opacity: 0;
+  text-decoration: none;
+}
+tr.cancel .check {
+  opacity: 1;
+}
+tr.del .x {
+  opacity: 0;
   color: red;
+}
+tr.del:hover .x {
+  opacity: 1;
 }
 div.flex {
   display: flex;
