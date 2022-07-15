@@ -53,6 +53,8 @@ tr.cancel {
 td.check {
   opacity: 0;
   text-decoration: none;
+  float: right;
+  margin-right: 10px;
 }
 tr.cancel .check {
   opacity: 1;
