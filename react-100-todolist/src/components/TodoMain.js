@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import uuid from "react-uuid";
 // import moment from "moment";
 import TodoList from "./TodoList";
 
 const TodoMain = () => {
-  const [todoList, setTodoList] = useState([]);
+  const [todoList, setTodoList] = useState(() => {
+    const todoBody = JSON.parse(localStorage.getItem("TODOLIST"));
+    if (todoBody) return todoBody;
+    else return [];
+  });
+  useEffect(() => {
+    localStorage.setItem("TODOLIST", JSON.stringify(todoList));
+  }, [todoList]);
 
   const onClick = () => {
     const b_todo = document.querySelector("input[name='b_todo']");
@@ -38,8 +45,8 @@ const TodoMain = () => {
 
   return (
     <>
-      <div>
-        <h1>오늘 할 일</h1>
+      <h1>오늘 할 일</h1>
+      <div className="flex">
         <input name="b_todo" className="w3-input w3-border w3-round" />
         <button onClick={onClick} className="w3-button w3-border">
           추가

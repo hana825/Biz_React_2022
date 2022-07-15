@@ -50,3 +50,9 @@ tr.cancel {
   text-decoration: line-through;
   color: green;
 }
+td.del {
+  color: red;
+}
+div.flex {
+  display: flex;
+}
